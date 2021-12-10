@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
 .container{
     width: 100%;
-    max-width: 1400px;
+    max-width: 1400px !important;
     margin: 0 auto;
+    padding: 0 15px;
 }
+.dropdown-trigger {
+    width: 100%;
+  }

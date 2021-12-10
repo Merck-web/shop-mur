@@ -3,8 +3,8 @@
     <div class="navbar">
       <Header />
     </div>
-    <section class="main-content columns">
-      <div class="container column is-10">
+    <section>
+      <div class="container">
         <Nuxt />
       </div>
     </section>

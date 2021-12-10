@@ -1,6 +1,6 @@
 <template>
-  <section class="section">
-   
+  <section>
+    <Options />
   </section>
 </template>
 
