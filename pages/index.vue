@@ -1,6 +1,7 @@
 <template>
   <section>
     <Options />
+    <Bestsellers />
   </section>
 </template>
 
