@@ -161,4 +161,37 @@ export default {
     box-sizing: border-box;
   }
 }
+@media (max-width: 1400px) {
+  .best {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .best-card:nth-child(3) {
+    grid-column: span 1;
+    grid-row: span 1;
+    order: -1;
+  }
+}
+@media (max-width: 1200px) {
+  .best {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 800px) {
+  .best {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (max-width: 360px) {
+  .best-card {
+    padding: 0 15px;
+    width: 280px;
+    height: 280px;
+    margin-bottom: 200px;
+  }
+  .btn{
+    button {
+      width: 200px;
+    }
+  }
+}
 </style>

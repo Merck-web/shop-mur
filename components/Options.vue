@@ -59,7 +59,7 @@
             >
           </b-dropdown>
         </div>
-        <div class="btn">
+        <div class="btn-options">
           <button>Apply</button>
         </div>
       </div>
@@ -144,9 +144,11 @@ export default {
   .comp:last-child {
     margin-right: 0;
   }
-  .btn {
+  .btn-options {
     margin-top: 42px;
     button {
+      max-width: 335px;
+      width: 100%;
       border: none;
       background: #1b1b1b;
       padding: 19px 140px;
@@ -161,5 +163,37 @@ export default {
 }
 .dropdown-menu {
   width: 100%;
+}
+@media (max-width: 1400px) {
+  .options-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    position: relative;
+  }
+  .btn-options {
+    position: absolute;
+    top: 120px;
+    left: 0;
+  }
+}
+@media (max-width: 1024px) {
+  .options-box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .btn-options {
+    top: 220px;
+  }
+}
+@media (max-width: 700px) {
+  .options-box {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .btn-options {
+    top: 350px;
+    button {
+      padding: 19px 70px !important;
+    }
+  }
 }
 </style>

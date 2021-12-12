@@ -82,4 +82,23 @@ export default {
     }
   }
 }
+@media (max-width: 640px) {
+  .nav .left-nav {
+    justify-content: flex-start;
+    .logo {
+      margin-right: 10px;
+    }
+  }
+}
+@media (max-width: 420px) {
+  .nav .right-nav {
+    flex-direction: column;
+  }
+  .nav .right-nav {
+    align-items: flex-start;
+  }
+  .nav .right-nav .profile {
+    margin-right: 0;
+  }
+}
 </style>

@@ -37,4 +37,13 @@
     }
   }
 }
+@media (max-width: 400px) {
+  .content .contact{
+    flex-direction: column;
+    p + p{
+      margin-left: 0;
+      margin-top: 10px;
+    }
+  }
+}
 </style>
