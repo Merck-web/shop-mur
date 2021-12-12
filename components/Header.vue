@@ -14,9 +14,15 @@
         </div>
         <div class="right-nav">
           <div class="profile">Profile</div>
-          <div class="basket">Basket(2)</div>
+          <div @click="openBasket" class="basket">Basket({{ this.count }})</div>
         </div>
       </nav>
+    </div>
+    <div v-if="basket" class="basket-open">
+      <div class="background"></div>
+      <div class="basket-window">
+        <Basket />
+      </div>
     </div>
   </section>
 </template>
@@ -25,16 +31,46 @@ export default {
   data() {
     return {
       catalog: false,
+      count: 2,
+      basket: false,
     };
   },
   methods: {
     catalogToggle() {
       this.catalog = !this.catalog;
     },
+    openBasket() {
+      this.basket = !this.basket;
+      let html = document.querySelector("html");
+      if (this.basket == true) {
+        html.style.overflow = "hidden";
+      } else {
+        html.style.overflow = "auto";
+      }
+    },
   },
 };
 </script>
 <style lang="scss" scoped>
+.basket-open {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  .background {
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.7);
+  }
+  .basket-window {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 455px;
+    height: 780px;
+    background-color: white;
+  }
+}
 .navbar {
   width: 100%;
 }
@@ -73,6 +109,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 100;
     .profile {
       margin-right: 43px;
       cursor: pointer;
