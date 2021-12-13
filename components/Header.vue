@@ -14,7 +14,13 @@
         </div>
         <div class="right-nav">
           <div class="profile">Profile</div>
-          <div @click="openBasket" class="basket">Basket({{ this.count }})</div>
+          <div
+            @click="openBasket"
+            :class="{ active: this.basket }"
+            class="basket"
+          >
+            Basket({{ this.count }})
+          </div>
         </div>
       </nav>
     </div>
@@ -30,7 +36,7 @@
 export default {
   data() {
     return {
-      catalog: false,
+      catalog: true,
       count: 2,
       basket: false,
     };
@@ -67,7 +73,6 @@ export default {
     top: 0;
     right: 0;
     width: 455px;
-    height: 780px;
     background-color: white;
   }
 }
@@ -125,6 +130,11 @@ export default {
     .logo {
       margin-right: 10px;
     }
+  }
+}
+@media (max-width: 455px) {
+  .basket-open .basket-window {
+    width: 320px;
   }
 }
 @media (max-width: 420px) {
