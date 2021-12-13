@@ -3,7 +3,12 @@
     <div class="best-box">
       <div class="best">
         <div v-for="card in cards" :key="card.id" class="best-card">
-          <div class="photo"><img :src="card.photo" /></div>
+          <div class="photo">
+            <img :src="card.photo" />
+            <div v-if="card.sale == !''" class="sale-icon">
+              Sale {{ card.sale }}%
+            </div>
+          </div>
           <div class="name">
             <p>{{ card.name }}</p>
           </div>
@@ -37,6 +42,7 @@ export default {
           name: "Converse Kids 70",
           price: "$49.99",
           oldprise: "",
+          sale: "",
         },
         {
           id: 2,
@@ -44,6 +50,7 @@ export default {
           name: "Converse Kids 70",
           price: "$49.99",
           oldprise: "$84.99",
+          sale: "",
         },
         {
           id: 3,
@@ -51,6 +58,7 @@ export default {
           name: "Converse Chuck 70 Renew High Top ",
           price: "$50.99",
           oldprise: "",
+          sale: "-40",
         },
         {
           id: 4,
@@ -58,6 +66,7 @@ export default {
           name: "Converse Pro Chuck 80",
           price: "$64.99",
           oldprise: "$99.99",
+          sale: "-35",
         },
         {
           id: 5,
@@ -65,6 +74,7 @@ export default {
           name: "Converse Winter Chuck 70",
           price: "$79.99",
           oldprise: "$99.99",
+          sale: "-20",
         },
         {
           id: 6,
@@ -72,6 +82,7 @@ export default {
           name: "Converse Winter Chuck 70 Full Black",
           price: "$129.99",
           oldprise: "",
+          sale: "",
         },
         {
           id: 7,
@@ -79,6 +90,7 @@ export default {
           name: "Converse Winter Chuck 70 Black/White",
           price: "$99.99",
           oldprise: "",
+          sale: "",
         },
       ],
       btnIsActive: false,
@@ -188,7 +200,7 @@ export default {
     height: 280px;
     margin-bottom: 200px;
   }
-  .btn{
+  .btn {
     button {
       width: 200px;
     }
