@@ -23,6 +23,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  .logo {
+    cursor: pointer;
+  }
   .contact {
     display: flex;
     justify-content: space-between;
@@ -35,12 +38,15 @@
     p + p {
       margin-left: 40px;
     }
+    p {
+      cursor: pointer;
+    }
   }
 }
 @media (max-width: 400px) {
-  .content .contact{
+  .content .contact {
     flex-direction: column;
-    p + p{
+    p + p {
       margin-left: 0;
       margin-top: 10px;
     }

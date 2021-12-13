@@ -115,6 +115,7 @@
   .contentRemove {
     p + p {
       text-decoration: underline;
+      cursor: pointer;
     }
   }
 }

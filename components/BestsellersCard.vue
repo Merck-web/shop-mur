@@ -4,9 +4,11 @@
       <div class="best">
         <div v-for="card in cards" :key="card.id" class="best-card">
           <div class="photo">
-            <img :src="card.photo" />
-            <div v-if="card.sale == !''" class="sale-icon">
-              Sale {{ card.sale }}%
+            <div class="photo-card">
+              <img :src="card.photo" />
+              <div v-if="card.sale" class="sale-icon">
+                Sale {{ card.sale }}%
+              </div>
             </div>
           </div>
           <div class="name">
@@ -110,6 +112,22 @@ export default {
   grid-template-rows: repeat(1, 1fr);
   grid-gap: 20px;
   .best-card {
+    .photo-card {
+      position: relative;
+      max-width: 335px;
+      max-height: 400px;
+      .sale-icon {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        background: #ff6b00;
+        padding: 12px 20px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        color: #ffffff;
+      }
+    }
     .name {
       margin-top: 15px;
     }
@@ -148,6 +166,15 @@ export default {
 .best-card:nth-child(3) {
   grid-column: span 2;
   grid-row: span 1;
+  .photo-card {
+    position: relative;
+    max-width: 690px;
+    max-height: 780px;
+    .sale-icon {
+      position: absolute;
+      top: 25px;
+    }
+  }
 }
 .best-card:nth-child(1),
 .best-card:nth-child(2) {
@@ -198,7 +225,17 @@ export default {
     padding: 0 15px;
     width: 280px;
     height: 280px;
-    margin-bottom: 200px;
+    margin-bottom: 170px;
+    .photo-card {
+      .sale-icon {
+        top: 15px !important;
+        right: 15px !important;
+        padding: 10px 15px !important;
+      }
+    }
+  }
+  .best-card:nth-child(3) {
+    margin-bottom: 400px;
   }
   .btn {
     button {
