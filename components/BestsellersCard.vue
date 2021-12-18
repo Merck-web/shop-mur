@@ -19,13 +19,18 @@
               {{ card.price }} <span>{{ card.oldprise }}</span>
             </p>
           </div>
-          <div @click="addToBasket" class="btn">
+          <div
+            @click="addToBasket(card)"
+            :class="{ active: card.added }"
+            class="btn"
+          >
             <b-button
               :rounded="false"
-              :class="{ active: btnIsActive }"
-              type="is-dark"
-              :icon-right="active ? 'check' : 'plus'"
-              ><p>Add to basket</p></b-button
+              :class="{ active: card.added }"
+              :type="card.added ? 'is-light' : 'is-dark'"
+              :icon-right="card.added ? 'check' : 'plus'"
+              ><p v-if="card.added">Added</p>
+              <p v-if="!card.added">Add to basket</p></b-button
             >
           </div>
         </div>
@@ -45,6 +50,7 @@ export default {
           price: "$49.99",
           oldprise: "",
           sale: "",
+          added: false,
         },
         {
           id: 2,
@@ -53,6 +59,7 @@ export default {
           price: "$49.99",
           oldprise: "$84.99",
           sale: "",
+          added: false,
         },
         {
           id: 3,
@@ -61,6 +68,7 @@ export default {
           price: "$50.99",
           oldprise: "",
           sale: "-40",
+          added: false,
         },
         {
           id: 4,
@@ -69,6 +77,7 @@ export default {
           price: "$64.99",
           oldprise: "$99.99",
           sale: "-35",
+          added: false,
         },
         {
           id: 5,
@@ -77,6 +86,7 @@ export default {
           price: "$79.99",
           oldprise: "$99.99",
           sale: "-20",
+          added: false,
         },
         {
           id: 6,
@@ -85,6 +95,7 @@ export default {
           price: "$129.99",
           oldprise: "",
           sale: "",
+          added: false,
         },
         {
           id: 7,
@@ -93,14 +104,15 @@ export default {
           price: "$99.99",
           oldprise: "",
           sale: "",
+          added: false,
         },
       ],
       btnIsActive: false,
     };
   },
   methods: {
-    addToBasket() {
-      this.btnIsActive = !this.btnIsActive;
+    addToBasket(card) {
+      card.added = !card.added;
     },
   },
 };
@@ -193,11 +205,11 @@ export default {
     line-height: 22px;
     color: #ffffff;
     border-radius: 0px;
+    transition: all 0.6s ease-in-out;
   }
-  button .active {
-    background: #ffffff;
+  .is-light {
+    color: #000000;
     border: 1px solid #000000;
-    box-sizing: border-box;
   }
 }
 @media (max-width: 1400px) {
