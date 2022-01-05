@@ -19,7 +19,7 @@
             :class="{ active: this.basket }"
             class="basket"
           >
-            Basket({{ this.count }})
+            Basket({{ cartItemCount }})
           </div>
         </div>
       </nav>
@@ -37,9 +37,13 @@ export default {
   data() {
     return {
       catalog: true,
-      count: 2,
       basket: false,
     };
+  },
+  computed: {
+    cartItemCount() {
+      return this.$store.getters.cartItemCount
+    }
   },
   methods: {
     catalogToggle() {

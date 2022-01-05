@@ -1,10 +1,13 @@
 <template>
   <div class="basket-cards">
-    <div v-for="basketCard in basketCards" :key="basketCard.id" class="card-bs">
-      <div class="photo"><img :src="basketCard.photo" /></div>
+    <div v-for="basketCard in card" :key="basketCard.id" class="card-bs">
+      <div class="photo"><img :src="basketCard.product.photo" /></div>
       <div class="info-card">
-        <div class="name">{{ basketCard.name }}</div>
-        <div class="prise">{{ basketCard.prise }}</div>
+        <div class="name">{{ basketCard.product.name }}</div>
+        <div class="prise">
+          {{ basketCard.product.price }} X <span>{{ 
+            basketCard.quantity }}</span>
+        </div>
         <div class="btn-delete">Remove</div>
       </div>
     </div>
@@ -14,21 +17,26 @@
 export default {
   data() {
     return {
-      basketCards: [
-        {
-          id: "1",
-          name: "Converse Chuck 70 Renew High Top",
-          photo: "img/cards/1.png",
-          prise: "$50.99",
-        },
-        {
-          id: "2",
-          name: "Converse Chuck 70",
-          photo: "img/cards/2.png",
-          prise: "$49.99",
-        },
-      ],
+      // basketCards: [
+      //   {
+      //     id: "1",
+      //     name: "Converse Chuck 70 Renew High Top",
+      //     photo: "img/cards/1.png",
+      //     prise: "$50.99",
+      //   },
+      //   {
+      //     id: "2",
+      //     name: "Converse Chuck 70",
+      //     photo: "img/cards/2.png",
+      //     prise: "$49.99",
+      //   },
+      // ],
     };
+  },
+  computed: {
+    card() {
+      return this.$store.state.cart;
+    },
   },
 };
 </script>

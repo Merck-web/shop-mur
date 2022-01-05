@@ -39,6 +39,7 @@
   </section>
 </template>
 <script>
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -50,6 +51,7 @@ export default {
           price: "$49.99",
           oldprise: "",
           sale: "",
+          quantity: 1,
           added: false,
         },
         {
@@ -59,6 +61,7 @@ export default {
           price: "$49.99",
           oldprise: "$84.99",
           sale: "",
+          quantity: 1,
           added: false,
         },
         {
@@ -68,6 +71,7 @@ export default {
           price: "$50.99",
           oldprise: "",
           sale: "-40",
+          quantity: 1,
           added: false,
         },
         {
@@ -77,6 +81,7 @@ export default {
           price: "$64.99",
           oldprise: "$99.99",
           sale: "-35",
+          quantity: 1,
           added: false,
         },
         {
@@ -86,6 +91,7 @@ export default {
           price: "$79.99",
           oldprise: "$99.99",
           sale: "-20",
+          quantity: 1,
           added: false,
         },
         {
@@ -95,6 +101,7 @@ export default {
           price: "$129.99",
           oldprise: "",
           sale: "",
+          quantity: 1,
           added: false,
         },
         {
@@ -104,6 +111,7 @@ export default {
           price: "$99.99",
           oldprise: "",
           sale: "",
+          quantity: 1,
           added: false,
         },
       ],
@@ -111,9 +119,14 @@ export default {
     };
   },
   methods: {
-    addToBasket(card) {
-      card.added = !card.added;
-    },
+    async addToBasket(card) {
+      // card.added = !card.added;
+      card.added = true;
+      this.$store.dispatch('addProductToCard', {
+        product: card,
+        quantity: 1
+      })
+    }
   },
 };
 </script>

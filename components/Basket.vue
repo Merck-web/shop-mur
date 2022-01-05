@@ -17,7 +17,7 @@
       <div class="order">
         <div class="order-total">
           <p>Order Total:</p>
-          <p>$ 135.99</p>
+          <p>$ {{ cardTotalPrice }}</p>
         </div>
       </div>
       <div class="basket-items">
@@ -30,6 +30,15 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  computed: {
+    cardTotalPrice() {
+      return this.$store.getters.cartTotalPrice;
+    },
+  },
+};
+</script>
 <style lang="scss" scoped>
 .basket-footer {
   padding: 30px 100px 30px 40px;
@@ -120,7 +129,7 @@
   }
 }
 @media (max-width: 455px) {
-  .text-info{
+  .text-info {
     padding: 20px 15px;
   }
 }
