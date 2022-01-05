@@ -8,7 +8,7 @@
           {{ basketCard.product.price }} X <span>{{ 
             basketCard.quantity }}</span>
         </div>
-        <div class="btn-delete">Remove</div>
+        <div @click.prevent="removeThisProduct(basketCard.product)" class="btn-delete">Remove</div>
       </div>
     </div>
   </div>
@@ -38,6 +38,12 @@ export default {
       return this.$store.state.cart;
     },
   },
+  methods: {
+    removeThisProduct(product){
+this.$store.dispatch('removeProductFromCart', product)
+    }
+  }
+  ,
 };
 </script>
 <style lang="scss" scoped>
@@ -75,6 +81,7 @@ export default {
     margin-top: 5px;
   }
   .btn-delete {
+    cursor: pointer;
     font-size: 16px;
     line-height: 19px;
     text-decoration-line: underline;

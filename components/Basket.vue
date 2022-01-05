@@ -12,7 +12,7 @@
       </div>
       <div class="contentRemove">
         <p>Content:</p>
-        <p>Remove all</p>
+        <p @click="clearBasket">Remove all</p>
       </div>
       <div class="order">
         <div class="order-total">
@@ -37,6 +37,11 @@ export default {
       return this.$store.getters.cartTotalPrice;
     },
   },
+  methods: {
+    clearBasket() {
+             this.$store.dispatch("clearAll");
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
