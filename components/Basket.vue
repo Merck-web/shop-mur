@@ -8,7 +8,7 @@
       </div>
       <div class="sale">
         <p>Sale:</p>
-        <p>$ 34.00</p>
+        <p>$ {{ cartTotalSale }}</p>
       </div>
       <div class="contentRemove">
         <p>Content:</p>
@@ -36,12 +36,15 @@ export default {
     cardTotalPrice() {
       return this.$store.getters.cartTotalPrice;
     },
+    cartTotalSale() {
+      return this.$store.getters.cartTotalSale;
+    },
   },
   methods: {
     clearBasket() {
-             this.$store.dispatch("clearAll");
-    }
-  }
+      this.$store.dispatch("clearAll");
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

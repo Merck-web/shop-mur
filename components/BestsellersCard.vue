@@ -16,7 +16,7 @@
           </div>
           <div class="price">
             <p>
-              {{ card.price }} <span>{{ card.oldprise }}</span>
+              $ {{ card.price }} <span v-if="card.oldprise">$ {{ card.oldprise }}</span>
             </p>
           </div>
           <div
@@ -39,7 +39,6 @@
   </section>
 </template>
 <script>
-import { mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -48,7 +47,7 @@ export default {
           id: 1,
           photo: "img/cards/1.png",
           name: "Converse Kids 70",
-          price: "$49.99",
+          price: 49.99,
           oldprise: "",
           sale: "",
           quantity: 1,
@@ -58,8 +57,8 @@ export default {
           id: 2,
           photo: "img/cards/2.png",
           name: "Converse Kids 70",
-          price: "$49.99",
-          oldprise: "$84.99",
+          price: 49.99,
+          oldprise: 84.99,
           sale: "",
           quantity: 1,
           added: false,
@@ -68,7 +67,7 @@ export default {
           id: 3,
           photo: "img/cards/3.png",
           name: "Converse Chuck 70 Renew High Top ",
-          price: "$50.99",
+          price: 50.99,
           oldprise: "",
           sale: "-40",
           quantity: 1,
@@ -78,8 +77,8 @@ export default {
           id: 4,
           photo: "img/cards/4.png",
           name: "Converse Pro Chuck 80",
-          price: "$64.99",
-          oldprise: "$99.99",
+          price: 64.99,
+          oldprise: 99.99,
           sale: "-35",
           quantity: 1,
           added: false,
@@ -88,8 +87,8 @@ export default {
           id: 5,
           photo: "img/cards/5.png",
           name: "Converse Winter Chuck 70",
-          price: "$79.99",
-          oldprise: "$99.99",
+          price: 79.99,
+          oldprise: 99.99,
           sale: "-20",
           quantity: 1,
           added: false,
@@ -98,7 +97,7 @@ export default {
           id: 6,
           photo: "img/cards/6.png",
           name: "Converse Winter Chuck 70 Full Black",
-          price: "$129.99",
+          price: 129.99,
           oldprise: "",
           sale: "",
           quantity: 1,
@@ -108,7 +107,7 @@ export default {
           id: 7,
           photo: "img/cards/7.png",
           name: "Converse Winter Chuck 70 Black/White",
-          price: "$99.99",
+          price: 99.99,
           oldprise: "",
           sale: "",
           quantity: 1,

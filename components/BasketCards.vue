@@ -5,10 +5,15 @@
       <div class="info-card">
         <div class="name">{{ basketCard.product.name }}</div>
         <div class="prise">
-          {{ basketCard.product.price }} X <span>{{ 
-            basketCard.quantity }}</span>
+          {{ basketCard.product.price }} X
+          <span>{{ basketCard.quantity }}</span>
         </div>
-        <div @click.prevent="removeThisProduct(basketCard.product)" class="btn-delete">Remove</div>
+        <div
+          @click.prevent="removeThisProduct(basketCard.product)"
+          class="btn-delete"
+        >
+          Remove
+        </div>
       </div>
     </div>
   </div>
@@ -36,14 +41,13 @@ export default {
   computed: {
     card() {
       return this.$store.state.cart;
-    },
+    }
   },
   methods: {
-    removeThisProduct(product){
-this.$store.dispatch('removeProductFromCart', product)
-    }
-  }
-  ,
+    removeThisProduct(product) {
+      this.$store.dispatch("removeProductFromCart", product);
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

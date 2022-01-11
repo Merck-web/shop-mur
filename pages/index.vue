@@ -2,7 +2,6 @@
   <section>
     <Options />
     <Bestsellers />
-    <!-- <BtnComponent /> -->
   </section>
 </template>
 
