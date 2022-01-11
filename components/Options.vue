@@ -3,7 +3,7 @@
     <div class="options">
       <div class="options-box">
         <div class="comp">
-          <p class="options-name">search</p>
+          <p class="options-name">Sale</p>
           <b-dropdown @change="isSearching" aria-role="list">
             <template #trigger="{ active }">
               <b-button
@@ -13,7 +13,7 @@
               />
             </template>
             <b-dropdown-item
-              v-for="optionOne in optionsTwo"
+              v-for="optionOne in optionsOne"
               :key="optionOne.id"
               :value="optionOne.value"
               aria-role="listitem"
@@ -41,7 +41,7 @@
           </b-dropdown>
         </div>
         <div class="comp">
-          <p class="options-name">Sale</p>
+          <p class="options-name">Limit</p>
           <b-dropdown @change="isSaling" aria-role="list">
             <template #trigger="{ active }">
               <b-button
@@ -71,23 +71,23 @@ export default {
   data() {
     return {
       optionsOne: [
-        { id: "1", name: "Action", value: "Action" },
-        { id: "2", name: "Another action", value: "Another action" },
-        { id: "3", name: "Something else", value: "Something else" },
+        { id: "1", name: "All", value: "All" },
+        { id: "2", name: "Yes", value: "Yes" },
+        { id: "3", name: "No", value: "No" },
       ],
       optionsTwo: [
-        { id: "1", name: "Action", value: "Action" },
-        { id: "2", name: "Another action", value: "Another action" },
-        { id: "3", name: "Something else", value: "Something else" },
+        { id: "1", name: "All", value: "All" },
+        { id: "2", name: "Сrossword", value: "Сrossword" },
+        { id: "3", name: "Boots", value: "Boots" },
       ],
       optionsThree: [
-        { id: "1", name: "Action", value: "Action" },
-        { id: "2", name: "Another action", value: "Another action" },
-        { id: "3", name: "Something else", value: "Something else" },
+        { id: "1", name: "No limit", value: "No limit" },
+        { id: "2", name: "up to 50 $", value: "up to 50 $" },
+        { id: "3", name: "more than 50 $", value: "more than 50 $" },
       ],
-      isSearch: "converse",
-      isProduct: "Sneakers",
-      isSale: "Sale",
+      isSearch: "All",
+      isProduct: "All",
+      isSale: "No limit",
     };
   },
   methods: {
@@ -103,7 +103,7 @@ export default {
   },
 };
 </script>
-<style lang="scss" >
+<style lang="scss">
 .options {
   margin-top: 80px;
 }
