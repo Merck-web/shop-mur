@@ -4,7 +4,7 @@
       <h1>TOTAL</h1>
       <div class="subTotal">
         <p>Subtotal:</p>
-        <p>$ 99.99</p>
+        <p>$ {{ subTotal }}</p>
       </div>
       <div class="sale">
         <p>Sale:</p>
@@ -38,6 +38,9 @@ export default {
     },
     cartTotalSale() {
       return this.$store.getters.cartTotalSale;
+    },
+    subTotal() {
+      return this.$store.getters.subTotal;
     },
   },
   methods: {
